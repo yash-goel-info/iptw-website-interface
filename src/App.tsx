@@ -13,6 +13,8 @@ import Compare from "./pages/Compare";
 import Pricing from "./pages/Pricing";
 import FaqPage from "./pages/FaqPage";
 import About from "./pages/About";
+import Assessment from "./pages/Assessment";
+import { AssessmentProvider } from "./assessment/AssessmentContext";
 
 /**
  * - Restores scroll to top on route change (or scrolls to a target section
@@ -86,9 +88,18 @@ function Home() {
 export default function App() {
   return (
     <HashRouter>
+      <AssessmentProvider>
       <ScrollManager />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route
+          path="/assessment"
+          element={
+            <Shell>
+              <Assessment />
+            </Shell>
+          }
+        />
         <Route
           path="/how-it-works"
           element={
@@ -147,6 +158,7 @@ export default function App() {
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </AssessmentProvider>
     </HashRouter>
   );
 }

@@ -122,7 +122,7 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="#cta"
+              href="#/assessment"
               className="group inline-flex items-center gap-2 rounded-full bg-crimson px-8 py-4 text-[15px] font-bold text-white shadow-xl shadow-crimson/25 transition hover:bg-crimson-700"
             >
               Start your free assessment

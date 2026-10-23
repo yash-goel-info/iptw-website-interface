@@ -149,8 +149,8 @@ export default function Pricing() {
                 </div>
                 <div className="relative mt-auto pt-8">
                   <a
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
+                    href={i === 0 ? "#/assessment" : "#"}
+                    onClick={i === 0 ? undefined : (e) => e.preventDefault()}
                     className={cn(
                       "group flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition",
                       t.featured

@@ -31,8 +31,7 @@ export function CtaBanner({ title }: { title?: ReactNode }) {
               <h2 className="max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl">{title}</h2>
             )}
             <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
+              href="#/assessment"
               className="group inline-flex items-center gap-2 rounded-full bg-crimson px-10 py-4 text-base font-bold text-white shadow-xl shadow-crimson/30 transition hover:bg-crimson-700"
             >
               Start your free assessment

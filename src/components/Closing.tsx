@@ -65,8 +65,7 @@ export function FinalCta() {
             </h2>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="#/assessment"
                 className="group inline-flex items-center gap-2 rounded-full bg-crimson px-8 py-4 text-[15px] font-bold text-white shadow-xl shadow-crimson/30 transition hover:bg-crimson-700"
               >
                 Start your free assessment
