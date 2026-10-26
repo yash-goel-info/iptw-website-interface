@@ -221,8 +221,7 @@ export default function HowItWorks() {
             <div className="animate-spin-slow absolute -right-14 -top-14 h-48 w-48 rounded-full border-2 border-dashed border-white/10" />
             <div className="relative flex justify-center">
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="#/assessment"
                 className="group inline-flex items-center gap-2 rounded-full bg-crimson px-10 py-4.5 text-base font-bold text-white shadow-xl shadow-crimson/30 transition hover:bg-crimson-700"
               >
                 Start your free assessment

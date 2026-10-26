@@ -114,7 +114,7 @@ export default function Navbar() {
               Sign in
             </a>
             <a
-              href="#cta"
+              href="#/assessment"
               className="group hidden items-center gap-2 whitespace-nowrap rounded-full bg-crimson px-5 py-2.5 text-[13px] font-bold text-white shadow-lg shadow-crimson/25 transition hover:bg-crimson-700 sm:inline-flex"
             >
               Start free assessment
@@ -144,7 +144,7 @@ export default function Navbar() {
             ))}
             <div className="mt-3 flex gap-3 px-1">
               <a
-                href="#cta"
+                href="#/assessment"
                 onClick={() => setOpen(false)}
                 className="flex-1 whitespace-nowrap rounded-full bg-crimson px-5 py-3 text-center text-sm font-bold text-white"
               >
