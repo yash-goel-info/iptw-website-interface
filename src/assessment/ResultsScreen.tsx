@@ -13,7 +13,14 @@ export default function ResultsScreen() {
   const isTopTier = result.tier.minScore >= 75;
 
   return (
-    <div className="mx-auto max-w-2xl text-center">
+    <div className="relative mx-auto max-w-2xl text-center">
+      {isTopTier && (
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-44 overflow-hidden" aria-hidden="true">
+          {Array.from({ length: 18 }, (_, index) => (
+            <Sparkles key={index} className="score-sparkle absolute size-4" style={{ left: `${8 + ((index * 37) % 84)}%`, top: `${8 + ((index * 23) % 70)}%`, animationDelay: `${(index % 6) * 120}ms`, color: ["#be2026", "#c58b35", "#253c8f", "#0f766e"][index % 4] }} />
+          ))}
+        </div>
+      )}
       <Eyebrow>Your quick self-check</Eyebrow>
 
       <p

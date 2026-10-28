@@ -6,12 +6,19 @@ import PlanSelection from "../assessment/PlanSelection";
 import QuestionStep from "../assessment/QuestionStep";
 import ResultsScreen from "../assessment/ResultsScreen";
 import WelcomeScreen from "../assessment/WelcomeScreen";
+import GoldFlow from "../assessment/GoldFlow";
 import { STEP, chapterForStep } from "../assessment/data";
 
 function CurrentStep({ step }: { step: number }) {
   const chapter = chapterForStep(step);
   if (chapter) return <QuestionStep key={chapter.chapter.id} chapter={chapter.chapter} index={chapter.index} />;
   switch (step) {
+    case STEP.goldPlan:
+      return <GoldFlow stage="plan" />;
+    case STEP.goldCheckout:
+      return <GoldFlow stage="checkout" />;
+    case STEP.goldSuccess:
+      return <GoldFlow stage="success" />;
     case STEP.details:
       return <CompanyForm />;
     case STEP.welcome:
