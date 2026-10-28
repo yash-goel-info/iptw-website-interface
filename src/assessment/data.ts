@@ -21,7 +21,7 @@ export const PLANS: Plan[] = [
     label: "Gold",
     title: "Get certified",
     description: "Full team assessment. Rating & certificate in 24 hours.",
-    available: false,
+    available: true,
   },
   {
     id: "premium",
@@ -66,7 +66,7 @@ export const INITIAL_DETAILS: CompanyDetails = {
 
 /* ---------- journey structure ---------- */
 
-export const TOTAL_STEPS = 10;
+export const TOTAL_STEPS = 13;
 
 export const STEP = {
   plan: 1,
@@ -74,6 +74,9 @@ export const STEP = {
   welcome: 3,
   firstChapter: 4,
   results: 10,
+  goldPlan: 11,
+  goldCheckout: 12,
+  goldSuccess: 13,
 } as const;
 
 export const STEP_LABELS: Record<number, string> = {

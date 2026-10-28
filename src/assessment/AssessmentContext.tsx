@@ -27,7 +27,7 @@ function reducer(state: State, action: Action): State {
     case "goTo":
       return { ...state, step: Math.min(Math.max(action.step, STEP.plan), TOTAL_STEPS) };
     case "selectPlan":
-      return { ...state, plan: action.plan, step: STEP.details };
+      return { ...state, plan: action.plan, step: action.plan === "gold" ? STEP.goldPlan : STEP.details };
     case "updateDetails":
       return { ...state, details: { ...state.details, ...action.patch } };
     case "answer":
