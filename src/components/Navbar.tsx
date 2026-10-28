@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, ShieldCheck, X } from "lucide-react";
+import SignInDialog from "./SignInDialog";
 import Logo from "./Logo";
 import { cn } from "../utils/cn";
 
@@ -31,6 +32,7 @@ function NavLink({ label, href, active, className, onClick }: { label: string; h
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [signInOpen, setSignInOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -68,17 +70,17 @@ export default function Navbar() {
           scrolled ? "bg-white/90 shadow-[0_8px_30px_rgba(15,26,64,0.08)] backdrop-blur-xl" : "bg-white/80 backdrop-blur-md"
         )}
       >
-        <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between gap-5 px-5 lg:px-8">
+        <div className="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
           {/* brand lockup */}
-          <Link to="/" className="flex shrink-0 items-center gap-3">
-            <div className="h-12 shrink-0">
+          <Link to="/" className="group flex shrink-0 items-center gap-2.5">
+            <div className="h-12 w-9 shrink-0 transition-transform duration-300 group-hover:-rotate-3 sm:h-14 sm:w-10">
               <Logo />
             </div>
             <div className="whitespace-nowrap leading-tight">
-              <p className="font-display text-[15px] font-extrabold tracking-tight text-navy">
+              <p className="font-display text-[14px] font-extrabold tracking-tight text-navy sm:text-[15px]">
                 IPTW <span className="font-semibold text-slate-500">· Ideal Place to Work™</span>
               </p>
-              <p className="mt-1 text-[9.5px] font-bold uppercase tracking-[0.18em] text-crimson">
+              <p className="mt-1 text-[8px] font-bold uppercase tracking-[0.2em] text-crimson sm:text-[9.5px]">
                 Workplace Certification
               </p>
             </div>
@@ -107,12 +109,13 @@ export default function Navbar() {
               <ShieldCheck className="h-4 w-4 shrink-0" />
               Verify certification
             </a>
-            <a
-              href="#cta"
-              className="hidden whitespace-nowrap rounded-full px-3 py-2.5 text-[13px] font-semibold text-slate-700 transition hover:text-navy 2xl:inline"
+            <button
+              type="button"
+              onClick={() => setSignInOpen(true)}
+              className="hidden whitespace-nowrap rounded-full border border-navy/15 bg-white px-3.5 py-2.5 text-[13px] font-semibold text-navy transition hover:border-navy hover:bg-navy-50 md:inline-flex"
             >
               Sign in
-            </a>
+            </button>
             <a
               href="#/assessment"
               className="group hidden items-center gap-2 whitespace-nowrap rounded-full bg-crimson px-5 py-2.5 text-[13px] font-bold text-white shadow-lg shadow-crimson/25 transition hover:bg-crimson-700 sm:inline-flex"
@@ -143,6 +146,13 @@ export default function Navbar() {
               />
             ))}
             <div className="mt-3 flex gap-3 px-1">
+              <button
+                type="button"
+                onClick={() => { setOpen(false); setSignInOpen(true); }}
+                className="rounded-full border border-navy/20 px-4 py-3 text-sm font-semibold text-navy"
+              >
+                Sign in
+              </button>
               <a
                 href="#/assessment"
                 onClick={() => setOpen(false)}
@@ -161,6 +171,7 @@ export default function Navbar() {
           </div>
         )}
       </nav>
+      <SignInDialog open={signInOpen} onClose={() => setSignInOpen(false)} />
     </header>
   );
 }
